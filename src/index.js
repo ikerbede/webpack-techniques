@@ -1,7 +1,3 @@
-import { aComponent } from './a/a.js';
-import { bComponent } from './b/b.js';
-import { cComponent } from './c/c.js';
-
 function title() {
   const element = document.createElement('h1');
 
@@ -19,13 +15,13 @@ function menuItem(name) {
     const content = document.querySelector('#content');
     switch (name) {
       case 'A':
-        content.replaceChildren(aComponent());
+        import('./a/a.js').then(({ aComponent }) => content.replaceChildren(aComponent()));
         break;
       case 'B':
-        content.replaceChildren(bComponent());
+        import('./b/b.js').then(({ bComponent }) => content.replaceChildren(bComponent()));
         break;
       case 'C':
-        content.replaceChildren(cComponent());
+        import('./c/c.js').then(({ cComponent }) => content.replaceChildren(cComponent()));
         break;
     }
   });
