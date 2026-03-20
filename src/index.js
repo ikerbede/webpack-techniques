@@ -11,17 +11,20 @@ function menuItem(name) {
   const btn = document.createElement('button');
 
   btn.innerHTML = name;
-  btn.addEventListener("click", (event) => {
+  btn.addEventListener("click", async (event) => {
     const content = document.querySelector('#content');
     switch (name) {
       case 'A':
-        import('./a/a.js').then(({ aComponent }) => content.replaceChildren(aComponent()));
+        const { aComponent } = await import('./a/a.js');
+        content.replaceChildren(aComponent());
         break;
       case 'B':
-        import('./b/b.js').then(({ bComponent }) => content.replaceChildren(bComponent()));
+        const { bComponent } = await import('./b/b.js');
+        content.replaceChildren(bComponent());
         break;
       case 'C':
-        import('./c/c.js').then(({ cComponent }) => content.replaceChildren(cComponent()));
+        const { cComponent } = await import('./c/c.js');
+        content.replaceChildren(cComponent());
         break;
     }
   });
