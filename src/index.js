@@ -1,9 +1,11 @@
-import _ from 'lodash';
+import { aComponent } from './a/a.js';
+import { bComponent } from './b/b.js';
+import { cComponent } from './c/c.js';
 
 function title() {
   const element = document.createElement('h1');
 
-  element.innerHTML = _.join(['Webpack', 'code', 'splitting'], ' ');
+  element.innerHTML = 'Webpack techniques';
 
   return element;
 }
@@ -17,19 +19,13 @@ function menuItem(name) {
     const content = document.querySelector('#content');
     switch (name) {
       case 'A':
-        import('./a/a.js').then(({ aComponent }) => {
-          content.replaceChildren(aComponent());
-        });
+        content.replaceChildren(aComponent());
         break;
       case 'B':
-        import('./b/b.js').then(({ bComponent }) => {
-          content.replaceChildren(bComponent());
-        });
+        content.replaceChildren(bComponent());
         break;
       case 'C':
-        import('./c/c.js').then(({ cComponent }) => {
-          content.replaceChildren(cComponent());
-        });
+        content.replaceChildren(cComponent());
         break;
     }
   });

@@ -1,9 +1,7 @@
-import _ from 'lodash';
-
 export function bComponent() {
-  const element = document.createElement('h1');
+  const element = document.createElement('h2');
   
-  element.innerHTML = _.join(['B', 'component'], ' ');
+  element.innerHTML = 'B component';
 
   return element;
 }

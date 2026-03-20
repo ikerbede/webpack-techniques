@@ -7,34 +7,15 @@ const __dirname = path.dirname(__filename);
 
 export default {
   mode: 'development',
-  entry: {
-    index: {
-      import: './src/index.js',
-      dependOn: 'shared',
-    },
-    shared: 'lodash',
-  },
+  entry: './src/index.js',
   output: {
-    filename: '[name].[contenthash].bundle.js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
   },
-  optimization: {
-    moduleIds: 'deterministic',
-    runtimeChunk: 'single',
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-        },
-      },
-    },
-  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Caching',
+      title: 'Webpack techniques',
     }),
   ],
 };
