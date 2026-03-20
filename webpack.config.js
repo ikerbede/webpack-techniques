@@ -34,7 +34,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Caching',
+      title: 'Lazy loading',
     }),
   ],
 };
